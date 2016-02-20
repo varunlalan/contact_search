@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215152425) do
+ActiveRecord::Schema.define(version: 20160220151415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_trgm"
 
   create_table "contacts", force: :cascade do |t|
     t.string   "first_name"
@@ -23,5 +24,9 @@ ActiveRecord::Schema.define(version: 20160215152425) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  add_index "contacts", ["first_name"], name: "index_contacts_on_first_name", using: :btree
+  add_index "contacts", ["last_name"], name: "index_contacts_on_last_name", using: :btree
+  add_index "contacts", ["phone_number"], name: "index_contacts_on_phone_number", using: :btree
 
 end
