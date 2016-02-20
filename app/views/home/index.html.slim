@@ -1,0 +1,63 @@
+script#contacts_list type="text/x-handlebars-template"
+  | {{#each contacts}}
+  | <li>
+  | <div class="initial">{{drawInitial first_name}}</div>
+  | <div class="name">
+  | <span class="first_name">{{first_name}}</span>
+  | <span class="last_name">{{last_name}}</span>
+  | </div>
+  | <div class="phone_number">{{phone_number}}</div>
+  | </li>
+  | {{/each}}
+
+#content
+  #section1
+    #search_list
+      ul
+
+  #section2
+    #search_text_field
+      #text
+      #clear_image
+        = image_tag('clear.png')
+    #keys
+      .row
+        .column(data-show='1')
+          span.digit 1
+          span.alphabets
+        .column(data-show='2')
+          span.digit 2
+          span.alphabets abc
+        .column(data-show='3')
+          span.digit 3
+          span.alphabets def
+      .row
+        .column(data-show='4')
+          span.digit 4
+          span.alphabets ghi
+        .column(data-show='5')
+          span.digit 5
+          span.alphabets jkl
+        .column(data-show='6')
+          span.digit 6
+          span.alphabets mno
+      .row
+        .column(data-show='7')
+          span.digit 7
+          span.alphabets pqrs
+        .column(data-show='8')
+          span.digit 8
+          span.alphabets tuv
+        .column(data-show='9')
+          span.digit 9
+          span.alphabets wxyz
+      .row
+        .column(data-show='*')
+          span.digit
+          span.alphabets *
+        .column(data-show='0')
+          span.digit 0
+          span.alphabets +
+        .column(data-show='#')
+          span.digit
+          span.alphabets #

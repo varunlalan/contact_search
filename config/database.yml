@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  username: postgres
+  password: password
+  host: localhost
+
+development:
+  <<: *default
+  database: contact_search_dev
+
+test:
+  <<: *default
+  database: contact_search_test
+
+production:
+  <<: *default
