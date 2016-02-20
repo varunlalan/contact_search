@@ -13,8 +13,8 @@ class SearchContact
   def initialize(search_string)
     @search_string = search_string
     @split_string = split_search_string
-    @name_regex = name_regex
     @phone_regex = phone_regex
+    @name_regex = nil
     @conditions = []
   end
 
@@ -35,6 +35,7 @@ class SearchContact
 
   def search_by_name
     return "" if '1'.in?(@split_string) || '0'.in?(@split_string)
+    @name_regex = name_regex
     "lower(first_name) ~ '#{@name_regex}' OR lower(last_name) ~ '#{@name_regex}'"
   end
 

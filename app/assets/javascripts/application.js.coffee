@@ -22,20 +22,22 @@ $(->
     nameRegex = regex.name_regex
     phoneRegex = regex.phone_regex
 
-    $('li .name').each ((i, name) ->
-      $firstName = $(name).find('.first_name')
-      html = $firstName.html()
-      $firstName.html(html.replace(formRegex(nameRegex), '<strong>$&</strong>'));
+    if nameRegex?
+      $('li .name').each ((i, name) ->
+        $firstName = $(name).find('.first_name')
+        html = $firstName.html()
+        $firstName.html(html.replace(formRegex(nameRegex), '<strong>$&</strong>'));
 
-      $lastName = $(name).find('.last_name')
-      html = $lastName.html()
-      $lastName.html(html.replace(formRegex(nameRegex), '<strong>$&</strong>'));
-    )
+        $lastName = $(name).find('.last_name')
+        html = $lastName.html()
+        $lastName.html(html.replace(formRegex(nameRegex), '<strong>$&</strong>'));
+      )
 
-    $('li .phone_number').each ((i, phone) ->
-      html = $(phone).html()
-      $(phone).html(html.replace(formRegex(phoneRegex), '<strong>$&</strong>'));
-    )
+    if phoneRegex?
+      $('li .phone_number').each ((i, phone) ->
+        html = $(phone).html()
+        $(phone).html(html.replace(formRegex(phoneRegex), '<strong>$&</strong>'));
+      )
   )
 
   fetchContacts = ((searchText) ->
